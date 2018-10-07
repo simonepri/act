@@ -42,7 +42,7 @@ Insert this image inside the page you want to track substituting `<SpreadsheetId
 <img src="https://act.now.sh/gs/<SpreadsheetId>?a=<PageName>" />
 ```
 **Example:**<br/>
-Each time you [see this image](https://act.now.sh/gs/1gBD3pJ9LeJdZM1SyvRD7v077pkItVHl4laWhGeW93sE?a=Example 1) a new row is added at the end of [this spreadsheet](https://docs.google.com/spreadsheets/d/1gBD3pJ9LeJdZM1SyvRD7v077pkItVHl4laWhGeW93sE).
+Each time you [see this image](https://act.now.sh/gs/1gBD3pJ9LeJdZM1SyvRD7v077pkItVHl4laWhGeW93sE?a=Example%201) a new row is added at the end of [this spreadsheet](https://docs.google.com/spreadsheets/d/1gBD3pJ9LeJdZM1SyvRD7v077pkItVHl4laWhGeW93sE).
 
 ### Track clicks
 Insert this inside the page substituting `<SpreadsheetId>`, `<ActionName>`, and `<LinkToTrack>` with the appropriate values.
@@ -51,7 +51,7 @@ Insert this inside the page substituting `<SpreadsheetId>`, `<ActionName>`, and 
 ```
 
 **Example:**<br/>
-Each time you [click here](https://act.now.sh/gs/1gBD3pJ9LeJdZM1SyvRD7v077pkItVHl4laWhGeW93sE?a=Example 2&r=https://github.com/simonepri/act) a new row is added at the end of [this spreadsheet](https://docs.google.com/spreadsheets/d/1gBD3pJ9LeJdZM1SyvRD7v077pkItVHl4laWhGeW93sE).
+Each time you [click here](https://act.now.sh/gs/1gBD3pJ9LeJdZM1SyvRD7v077pkItVHl4laWhGeW93sE?a=Example%202&r=https://github.com/simonepri/act) a new row is added at the end of [this spreadsheet](https://docs.google.com/spreadsheets/d/1gBD3pJ9LeJdZM1SyvRD7v077pkItVHl4laWhGeW93sE).
 
 ### API
 
