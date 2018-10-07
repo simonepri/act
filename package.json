@@ -1,0 +1,37 @@
+{
+  "private": true,
+  "name": "act",
+  "version": "0.0.1",
+  "description": "Multi-purpose URI tracker",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js | pino-pretty -l",
+    "test": "xo",
+    "update": "npm-check -u"
+  },
+  "engine": {
+    "node": ">=10"
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "fastify": "^1.9.0",
+    "googleapis": "^34.0.0",
+    "iplocation": "^5.0.1",
+    "pify": "^4.0.0",
+    "pino-pretty": "^2.2.1",
+    "ua-parser-js": "^0.7.18",
+    "valid-url": "^1.0.9"
+  },
+  "devDependencies": {
+    "np": "*",
+    "npm-check": "*",
+    "xo": "*"
+  },
+  "xo": {
+    "space": true,
+    "rules": {
+      "prefer-destructuring": "off"
+    }
+  }
+}
