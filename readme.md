@@ -22,7 +22,7 @@
 
 ## Synopsis
 Act is an API service that allows you to track user actions. An action is either a page/email view or a click on a link.  
-Each time a request is made to act, it automatically collects the timestamp, the operating system, the browser, the city, the region, and the country from where the request comes and then the data are wrote to a cloud storage of your choice and no data is stored on our side.  
+Each time a request is made to act, it automatically collects the timestamp, the operating system, the browser, the city, the region, and the country from where the request comes and then the data are written to the cloud storage of your choice and no data is stored on our side.  
 Currently, the only storage type supported is Google Sheets!
 
 ## Google Sheets
@@ -34,7 +34,7 @@ Currently, the only storage type supported is Google Sheets!
 2 - Create a new blank document.<br/>
 3 - Share the document with [access@act-uri-tracker.iam.gserviceaccount.com][storage:gs-email]. (*Only necessary if the document is not public*)<br/>
 4 - Copy the spreadsheet id from the URL bar.<br/>
-5 - Use the spreadsheet id to do requests to act as showed below.<br/>
+5 - Use the spreadsheet id to make requests to act as shown below.<br/>
 
 ### Track views
 Insert this image inside the page you want to track substituting `<SpreadsheetId>` and `<PageName>` with the appropriate values.
@@ -62,11 +62,11 @@ GET | `https://act.now.sh/gs/<SpreadsheetId>?a=<data>` | A 1x1 transparent png i
 GET | `https://act.now.sh/gs/<SpreadsheetId>?r=<uri>` | A 302 redirect to the uri. | A new line is appended to the spreadsheet.
 GET | `https://act.now.sh/gs/<SpreadsheetId>?a=<data>&r=<uri>` | A 302 redirect to the uri. | A new line is appended to the spreadsheet.
 
-## Other storages
-Currently act supports only Google Sheets but contributions to extend its capabilities are welcome.
+## Other storage
+Currently, act supports only Google Sheets, but contributions to extend its capabilities are welcome.
 
 ## Development
-If you want to run it locally you just need to run the following commands.
+If you want to run it locally, you need to run the following commands.
 
 ```bash
 git clone https://github.com/simonepri/act.git
