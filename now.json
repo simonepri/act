@@ -1,0 +1,6 @@
+{
+  "env": {
+    "googleapi_client_email": "@act_googleapi_client_email",
+    "googleapi_private_key": "@act_googleapi_private_key"
+  }
+}
