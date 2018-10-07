@@ -32,7 +32,7 @@ Currently, the only storage type supported is Google Sheets!
 
 1 - Open [Google Sheets][storage:gs].<br/>
 2 - Create a new blank document.<br/>
-3 - Share the document with [access@act-uri-tracker.iam.gserviceaccount.com][storage:gs-email]. (*Only necessary if the document is not public*)<br/>
+3 - Share the document with [access@act-uri-tracker.iam.gserviceaccount.com][storage:gs-email].<br/>
 4 - Copy the spreadsheet id from the URL bar.<br/>
 5 - Use the spreadsheet id to make requests to act as shown below.<br/>
 
@@ -41,8 +41,8 @@ Insert this image inside the page you want to track substituting `<SpreadsheetId
 ```bash
 <img src="https://act.now.sh/gs/<SpreadsheetId>?a=<PageName>" />
 ```
-> Example:
-> Each time you [see this image](https://act.now.sh/gs/1gBD3pJ9LeJdZM1SyvRD7v077pkItVHl4laWhGeW93sE?a=Example 1) a new row is added at the end of [this spreadsheet](https://docs.google.com/spreadsheets/d/1gBD3pJ9LeJdZM1SyvRD7v077pkItVHl4laWhGeW93sE)
+**Example:**<br/>
+Each time you [see this image](https://act.now.sh/gs/1gBD3pJ9LeJdZM1SyvRD7v077pkItVHl4laWhGeW93sE?a=Example 1) a new row is added at the end of [this spreadsheet](https://docs.google.com/spreadsheets/d/1gBD3pJ9LeJdZM1SyvRD7v077pkItVHl4laWhGeW93sE).
 
 ### Track clicks
 Insert this inside the page substituting `<SpreadsheetId>`, `<ActionName>`, and `<LinkToTrack>` with the appropriate values.
@@ -50,8 +50,8 @@ Insert this inside the page substituting `<SpreadsheetId>`, `<ActionName>`, and 
 <a href="https://act.now.sh/gs/<SpreadsheetId>?a=<ActionName>&r=<LinkToTrack>" />
 ```
 
-> Example:
-> Each time you [click here](https://act.now.sh/gs/1gBD3pJ9LeJdZM1SyvRD7v077pkItVHl4laWhGeW93sE?a=Example 2&r=https://github.com/simonepri/act) a new row is added at the end of [this spreadsheet](https://docs.google.com/spreadsheets/d/1gBD3pJ9LeJdZM1SyvRD7v077pkItVHl4laWhGeW93sE)
+**Example:**<br/>
+Each time you [click here](https://act.now.sh/gs/1gBD3pJ9LeJdZM1SyvRD7v077pkItVHl4laWhGeW93sE?a=Example 2&r=https://github.com/simonepri/act) a new row is added at the end of [this spreadsheet](https://docs.google.com/spreadsheets/d/1gBD3pJ9LeJdZM1SyvRD7v077pkItVHl4laWhGeW93sE).
 
 ### API
 
