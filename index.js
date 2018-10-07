@@ -5,6 +5,17 @@ async function run() {
 
   const configs = {};
 
+  configs.credentials = {
+    googleapi: {
+      email: process.env.googleapi_client_email,
+      key: Buffer.from(process.env.googleapi_private_key, 'base64').toString('utf-8')
+    }
+  };
+
+  configs.auths = {
+    googleapi: await init.googleapi(configs)
+  };
+
   configs.server = {
     port: process.env.server_port || 80
   };
