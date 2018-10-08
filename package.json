@@ -5,10 +5,13 @@
   "description": "Multi-purpose URI tracker",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js | pino-pretty -l",
     "test": "xo",
+    "start": "node src/index.js | pino-pretty -l",
     "update": "npm-check -u"
   },
+  "files": [
+    "src"
+  ],
   "engine": {
     "node": ">=10"
   },
