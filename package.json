@@ -5,12 +5,15 @@
   "description": "Multi-purpose URI tracker",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js | pino-pretty -l",
-    "test": "xo",
+    "start": "node src/index.js | pino-pretty -l",
+    "test": "xo &&nyc ava",
     "update": "npm-check -u"
   },
+  "files": [
+    "src"
+  ],
   "engine": {
-    "node": ">=10"
+    "node": ">=6"
   },
   "dependencies": {
     "cors": "^2.8.4",
@@ -24,6 +27,8 @@
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
+    "ava": "*",
+    "nyc": "*",
     "np": "*",
     "npm-check": "*",
     "xo": "*"
