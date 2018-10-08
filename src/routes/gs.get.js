@@ -2,6 +2,7 @@ const {google} = require('googleapis');
 const validURL = require('valid-url');
 const iplocation = require('iplocation');
 const uaparser = require('ua-parser-js');
+const device = require('device');
 
 const sheets = google.sheets('v4');
 
@@ -24,6 +25,7 @@ module.exports = configs => {
     values.re = query.r;
     values.ts = new Date().toISOString();
     const ua = uaparser(request.headers['user-agent']);
+    values.de = device(request.headers['user-agent']).type;
     values.os = ua.os.name;
     values.br = ua.browser.name;
     try {
@@ -35,7 +37,7 @@ module.exports = configs => {
       request.log.error(error);
     }
 
-    const row = ['ts', 'os', 'br', 'ct', 'rn', 'co', 'ac', 're'].map(col => values[col]);
+    const row = ['ts', 'de', 'os', 'br', 'ct', 'rn', 'co', 'ac', 're'].map(col => values[col]);
 
     try {
       const options = {
