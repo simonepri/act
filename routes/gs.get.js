@@ -12,8 +12,9 @@ module.exports = configs => {
     const params = request.params;
     const query = request.query;
 
-    if (validURL.isUri(query.r)) {
-      reply.redirect(query.r);
+    const euri = encodeURI(query.r);
+    if (validURL.isUri(euri)) {
+      reply.redirect(euri);
     } else {
       reply.code(200).type('image/png').send(pixel);
     }
