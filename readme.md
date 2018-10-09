@@ -22,7 +22,7 @@
 
 ## Synopsis
 Act is an API service that allows you to track user actions. An action is either a page/email view or a click on a link.  
-Each time a request is made to act, it automatically collects the timestamp, the operating system, the browser, the city, the region, and the country from where the request comes and then the data are written to the cloud storage of your choice and no data is stored on our side.  
+Each time a request is made to act, it automatically collects the timestamp, the device type, the operating system, the browser, the city, the region, and the country from where the request comes and then the data are written to the cloud storage of your choice and no data is stored on our side.  
 Currently, the only storage type supported is Google Sheets!
 
 ## Google Sheets
