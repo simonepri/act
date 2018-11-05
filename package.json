@@ -21,7 +21,7 @@
     "dotenv": "^6.0.0",
     "fastify": "^1.9.0",
     "googleapis": "^34.0.0",
-    "iplocation": "^5.0.1",
+    "iplocation": "^6.0.4",
     "pify": "^4.0.0",
     "pino-pretty": "^2.2.1",
     "ua-parser-js": "^0.7.18",
