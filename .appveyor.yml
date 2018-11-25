@@ -22,4 +22,4 @@ test_script:
   - node -e "console.log('CPU:', require('os').cpus().length, 'x', require('os').cpus()[0].model)"
   - npm test
 after_test:
-- npx codecov
+#  - npx codecov
