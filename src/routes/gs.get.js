@@ -1,6 +1,6 @@
 const {google} = require('googleapis');
 const validURL = require('valid-url');
-const iplocation = require('iplocation');
+const iplocation = require('iplocation').default;
 const uaparser = require('ua-parser-js');
 const device = require('device');
 
