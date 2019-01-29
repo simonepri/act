@@ -20,7 +20,7 @@
     "device": "^0.3.9",
     "dotenv": "^6.0.0",
     "fastify": "^1.9.0",
-    "googleapis": "^35.0.0",
+    "googleapis": "^37.0.0",
     "iplocation": "^6.0.4",
     "pify": "^4.0.0",
     "pino-pretty": "^2.2.1",
