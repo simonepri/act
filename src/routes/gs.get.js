@@ -1,6 +1,6 @@
 const {google} = require('googleapis');
 const validURL = require('valid-url');
-const iplocation = require('iplocation');
+const iplocation = require('iplocation').default;
 const uaparser = require('ua-parser-js');
 const device = require('device');
 
@@ -29,7 +29,9 @@ module.exports = configs => {
     values.os = ua.os.name;
     values.br = ua.browser.name;
     try {
-      const res = await iplocation(request.headers['x-real-ip'] || request.raw.ip);
+      const ip = request.headers['x-real-ip'] || request.headers['x-forwarded-for'] || request.raw.ip;
+      request.log.info(ip);
+      const res = await iplocation(ip);
       values.ct = res.city;
       values.rn = res.region;
       values.co = res.country_name;
