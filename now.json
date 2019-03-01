@@ -1,6 +1,9 @@
 {
+  "version": 1,
+  "name": "act",
+  "alias": "act",
   "env": {
     "googleapi_client_email": "@act_googleapi_client_email",
-    "googleapi_private_key": "@act_googleapi_private_key"
+    "googleapi_private_key_b64": "@act_googleapi_private_key_b64"
   }
 }

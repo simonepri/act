@@ -8,7 +8,7 @@ async function run() {
   configs.credentials = {
     googleapi: {
       email: process.env.googleapi_client_email,
-      key: Buffer.from(process.env.googleapi_private_key, 'base64').toString('utf-8')
+      key: Buffer.from(process.env.googleapi_private_key_b64, 'base64').toString('utf-8')
     }
   };
 
