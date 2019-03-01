@@ -34,7 +34,7 @@ module.exports = configs => {
       const res = await iplocation(ip);
       values.ct = res.city;
       values.rn = res.region;
-      values.co = res.country_name;
+      values.co = res.country;
     } catch (error) {
       request.log.error(error);
     }
