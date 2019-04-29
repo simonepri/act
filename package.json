@@ -23,7 +23,7 @@
     "googleapis": "^37.2.0",
     "iplocation": "^6.1.0",
     "pify": "^4.0.1",
-    "pino-pretty": "^2.5.0",
+    "pino-pretty": "^3.0.0",
     "ua-parser-js": "^0.7.19",
     "valid-url": "^1.0.9"
   },
