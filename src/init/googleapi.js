@@ -1,11 +1,11 @@
 const pify = require('pify');
 const {google} = require('googleapis');
 
-module.exports = async configs => {
+module.exports = async options => {
   const jwtClient = new google.auth.JWT(
-    configs.credentials.googleapi.email,
+    options.email,
     null,
-    configs.credentials.googleapi.key,
+    options.key,
     ['https://www.googleapis.com/auth/spreadsheets']
   );
 

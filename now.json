@@ -1,9 +1,15 @@
 {
-  "version": 1,
+  "version": 2,
   "name": "act",
   "alias": "act",
   "env": {
     "googleapi_client_email": "@act_googleapi_client_email",
     "googleapi_private_key_b64": "@act_googleapi_private_key_b64"
-  }
+  },
+  "builds": [
+    { "src": "src/**/*.js", "use": "@now/node" }
+  ],
+  "routes": [
+    { "src": "/gs/(?<id>[^/]+)", "dest": "/src/routes/gs.js?id=$id" }
+  ]
 }

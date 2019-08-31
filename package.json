@@ -5,7 +5,7 @@
   "description": "Multi-purpose URI tracker",
   "license": "MIT",
   "scripts": {
-    "start": "node src/index.js | pino-pretty -l",
+    "start": "now dev",
     "lint": "xo",
     "test": "xo &&nyc ava",
     "update": "npm-check -u",
@@ -21,16 +21,15 @@
     "cors": "^2.8.5",
     "device": "^0.3.9",
     "dotenv": "^6.2.0",
-    "fastify": "^2.0.0",
     "googleapis": "^37.2.0",
     "iplocation": "^6.1.0",
     "pify": "^4.0.1",
-    "pino-pretty": "^2.5.0",
     "ua-parser-js": "^0.7.19",
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
     "ava": "*",
+    "now": "*",
     "np": "*",
     "npm-check": "*",
     "nyc": "*",

@@ -1,5 +1,5 @@
 const dotenv = require('dotenv');
 
-module.exports = () => {
+module.exports = async () => {
   dotenv.config();
 };
