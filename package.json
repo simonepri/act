@@ -20,8 +20,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "device": "^0.3.9",
-    "dotenv": "^6.2.0",
     "googleapis": "^37.2.0",
+    "dotenv": "^8.1.0",
     "iplocation": "^6.1.0",
     "pify": "^4.0.1",
     "ua-parser-js": "^0.7.19",
