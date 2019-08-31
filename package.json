@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node src/index.js | pino-pretty -l",
+    "lint": "xo",
     "test": "xo &&nyc ava",
     "update": "npm-check -u",
     "release": "np"
