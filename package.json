@@ -35,9 +35,20 @@
     "nyc": "*",
     "xo": "*"
   },
+  "ava": {
+    "verbose": true
+  },
+  "nyc": {
+    "reporter": [
+      "lcovonly",
+      "text"
+    ]
+  },
   "xo": {
+    "prettier": true,
     "space": true,
     "rules": {
+      "object-shorthand": "off",
       "prefer-destructuring": "off"
     }
   }
