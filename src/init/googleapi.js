@@ -1,4 +1,3 @@
-const pify = require('pify');
 const {google} = require('googleapis');
 
 module.exports = async options => {
@@ -11,7 +10,7 @@ module.exports = async options => {
   );
 
   try {
-    await pify(jwtClient.authorize);
+    await jwtClient.authorize();
   } catch (error) {
     throw error;
   }
