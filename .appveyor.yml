@@ -12,7 +12,8 @@ cache:
 install:
   - ps: Install-Product node $env:nodejs_version
   - npm install
-  - npm list --depth=0
+  - npm list -prod --depth=0
+  - npm list -dev --depth=0
 test_script:
   - node --version
   - npm --version

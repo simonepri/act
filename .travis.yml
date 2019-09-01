@@ -11,7 +11,8 @@ cache:
   - node_modules
 install:
   - npm install
-  - npm list --depth=0
+  - npm list -prod --depth=0
+  - npm list -dev --depth=0
 script:
   - node --version
   - npm --version
