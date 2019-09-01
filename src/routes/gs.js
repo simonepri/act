@@ -8,7 +8,10 @@ const sheets = google.sheets('v4');
 
 const init = require('../init');
 
-const pixel = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiYAAAAAkAAxkR2eQAAAAASUVORK5CYII=', 'base64');
+const pixel = Buffer.from(
+  'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiYAAAAAkAAxkR2eQAAAAASUVORK5CYII=',
+  'base64'
+);
 
 module.exports = async (request, response) => {
   const configs = await init();
@@ -22,7 +25,10 @@ module.exports = async (request, response) => {
   values.os = ua.os.name;
   values.br = ua.browser.name;
   try {
-    const ip = request.headers['x-real-ip'] || request.headers['x-forwarded-for'] || request.raw.ip;
+    const ip =
+      request.headers['x-real-ip'] ||
+      request.headers['x-forwarded-for'] ||
+      request.raw.ip;
     const res = await iplocation(ip);
     values.ct = res.city;
     values.rn = res.region;
@@ -31,7 +37,9 @@ module.exports = async (request, response) => {
     console.error(error);
   }
 
-  const row = ['ts', 'de', 'os', 'br', 'ct', 'rn', 'co', 'ac', 're'].map(col => values[col]);
+  const row = ['ts', 'de', 'os', 'br', 'ct', 'rn', 'co', 'ac', 're'].map(
+    col => values[col]
+  );
 
   try {
     const options = {
