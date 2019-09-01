@@ -10,8 +10,8 @@ cache:
   directories:
   - node_modules
 install:
-  - npm i -g npx
   - npm install
+  - npm list -g --depth=0
 script:
   - node --version
   - npm --version
