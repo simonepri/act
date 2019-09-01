@@ -4,6 +4,10 @@
   </a>
 </p>
 <p align="center">
+  <!-- CI - TravisCI -->
+  <a href="https://travis-ci.com/simonepri/act">
+    <img src="https://img.shields.io/travis/com/simonepri/act/master.svg?label=Linux%2FMacOS%2FWindows%20build" alt="Linux/MacOS/Windows build" />
+  </a>
   <!-- License - MIT -->
   <a href="https://github.com/simonepri/act#license">
     <img src="https://img.shields.io/github/license/simonepri/act.svg" alt="Project license" />
