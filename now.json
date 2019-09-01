@@ -7,9 +7,11 @@
     "googleapi_private_key_b64": "@act_googleapi_private_key_b64"
   },
   "builds": [
-    { "src": "src/**/*.js", "use": "@now/node" }
+    { "src": "src/**/*.js", "use": "@now/node" },
+    { "src": "src/static/404.html", "use": "@now/static" }
   ],
   "routes": [
-    { "src": "/gs/(?<id>[^/]+)", "dest": "/src/routes/gs.js?id=$id" }
+    { "src": "/gs/(?<id>[^/]+)", "dest": "/src/routes/gs.js?id=$id" },
+    { "src": ".*", "dest": "/src/static/404.html" }
   ]
 }
