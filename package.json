@@ -21,7 +21,7 @@
     "cors": "^2.8.5",
     "device": "^0.3.9",
     "dotenv": "^8.1.0",
-    "googleapis": "^43.0.0",
+    "googleapis": "^64.0.0",
     "iplocation": "^6.1.0",
     "ua-parser-js": "^0.7.19",
     "valid-url": "^1.0.9"
