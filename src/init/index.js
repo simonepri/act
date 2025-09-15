@@ -1,22 +1,24 @@
-const init = {
-  env: require('./env.js'),
-  googleapi: require('./googleapi.js')
-};
+import process from 'node:process';
+import {Buffer} from 'node:buffer';
+import env from './env.js';
+import googleapi from './googleapi.js';
 
-module.exports = async () => {
-  await init.env();
+const init = async () => {
+  await env();
 
   const configs = {};
 
   configs.auths = {
-    googleapi: await init.googleapi({
+    googleapi: await googleapi({
       email: process.env.googleapi_client_email,
       key: Buffer.from(
         process.env.googleapi_private_key_b64,
-        'base64'
-      ).toString('utf-8')
-    })
+        'base64',
+      ).toString('utf8'),
+    }),
   };
 
   return configs;
 };
+
+export default init;
