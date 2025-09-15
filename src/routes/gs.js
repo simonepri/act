@@ -1,19 +1,19 @@
-const {google} = require('googleapis');
-const validURL = require('valid-url');
-const iplocation = require('iplocation').default;
-const uaparser = require('ua-parser-js');
-const device = require('device');
+import {Buffer} from 'node:buffer';
+import {google} from 'googleapis';
+import validURL from 'valid-url';
+import iplocation from 'iplocation';
+import uaparser from 'ua-parser-js';
+import device from 'device';
+import init from '../init/index.js';
 
 const sheets = google.sheets('v4');
 
-const init = require('../init');
-
 const pixel = Buffer.from(
   'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiYAAAAAkAAxkR2eQAAAAASUVORK5CYII=',
-  'base64'
+  'base64',
 );
 
-module.exports = async (request, response) => {
+const gsRoute = async (request, response) => {
   const configs = await init();
 
   const values = {};
@@ -29,16 +29,16 @@ module.exports = async (request, response) => {
       request.headers['x-real-ip'] ||
       request.headers['x-forwarded-for'] ||
       request.raw.ip;
-    const res = await iplocation(ip);
-    values.ct = res.city;
-    values.rn = res.region;
-    values.co = res.country;
+    const locationData = await iplocation(ip);
+    values.ct = locationData.city;
+    values.rn = locationData.region;
+    values.co = locationData.country;
   } catch (error) {
     console.error(error);
   }
 
   const row = ['ts', 'de', 'os', 'br', 'ct', 'rn', 'co', 'ac', 're'].map(
-    col => values[col]
+    (col) => values[col],
   );
 
   try {
@@ -48,7 +48,7 @@ module.exports = async (request, response) => {
       range: 'A2',
       valueInputOption: 'RAW',
       insertDataOption: 'INSERT_ROWS',
-      resource: {values: [row]}
+      resource: {values: [row]},
     };
     await sheets.spreadsheets.values.append(options);
   } catch (error) {
@@ -70,3 +70,5 @@ module.exports = async (request, response) => {
     response.end(pixel);
   }
 };
+
+export default gsRoute;
