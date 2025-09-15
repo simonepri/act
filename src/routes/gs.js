@@ -1,54 +1,42 @@
-const {google} = require('googleapis');
-const validURL = require('valid-url');
-const iplocation = require('iplocation').default;
-const uaparser = require('ua-parser-js');
-const device = require('device');
-
-const sheets = google.sheets('v4');
-
-const init = require('../init');
+import {Buffer} from 'node:buffer';
+import {google} from 'googleapis';
+import validURL from 'valid-url';
+import { UAParser } from 'ua-parser-js';
+import device from 'device';
+import init from '../init/index.js';
 
 const pixel = Buffer.from(
   'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiYAAAAAkAAxkR2eQAAAAASUVORK5CYII=',
-  'base64'
+  'base64',
 );
 
-module.exports = async (request, response) => {
+const gsRoute = async (request, response) => {
   const configs = await init();
 
   const values = {};
   values.ac = request.query.a;
   values.re = request.query.r;
   values.ts = new Date().toISOString();
-  const ua = uaparser(request.headers['user-agent']);
+  const ua = new UAParser(request.headers['user-agent']).getResult();
   values.de = device(request.headers['user-agent']).type;
   values.os = ua.os.name;
   values.br = ua.browser.name;
-  try {
-    const ip =
-      request.headers['x-real-ip'] ||
-      request.headers['x-forwarded-for'] ||
-      request.raw.ip;
-    const res = await iplocation(ip);
-    values.ct = res.city;
-    values.rn = res.region;
-    values.co = res.country;
-  } catch (error) {
-    console.error(error);
-  }
+  values.ct = request.headers['x-vercel-ip-city'];
+  values.rn = request.headers['x-vercel-ip-country-region'];
+  values.co = request.headers['x-vercel-ip-country'];
 
   const row = ['ts', 'de', 'os', 'br', 'ct', 'rn', 'co', 'ac', 're'].map(
-    col => values[col]
+    (col) => values[col],
   );
 
+  const sheets = google.sheets({ version: 'v4', auth: configs.auths.googleapi });
   try {
     const options = {
-      auth: configs.auths.googleapi,
       spreadsheetId: request.query.id,
       range: 'A2',
       valueInputOption: 'RAW',
       insertDataOption: 'INSERT_ROWS',
-      resource: {values: [row]}
+      resource: {values: [row]},
     };
     await sheets.spreadsheets.values.append(options);
   } catch (error) {
@@ -70,3 +58,5 @@ module.exports = async (request, response) => {
     response.end(pixel);
   }
 };
+
+export default gsRoute;
