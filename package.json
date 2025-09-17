@@ -7,7 +7,6 @@
   "scripts": {
     "start": "now dev",
     "lint": "xo",
-    "test": "xo &&nyc ava",
     "update": "npm-check -u",
     "release": "np"
   },
@@ -27,21 +26,10 @@
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
-    "ava": "*",
     "now": "*",
     "np": "*",
     "npm-check": "*",
-    "nyc": "*",
     "xo": "*"
-  },
-  "ava": {
-    "verbose": true
-  },
-  "nyc": {
-    "reporter": [
-      "lcovonly",
-      "text"
-    ]
   },
   "xo": {
     "prettier": true,
