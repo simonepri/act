@@ -1,5 +1,7 @@
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 
-module.exports = async () => {
+const initEnv = async () => {
   dotenv.config();
 };
+
+export default initEnv;

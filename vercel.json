@@ -1,0 +1,12 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "name": "act",
+  "builds": [
+    { "src": "src/**/*.js", "use": "@vercel/node" },
+    { "src": "src/static/404.html", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/gs/(?<id>[^/]+)", "dest": "/src/routes/gs.js?id=$id" },
+    { "src": ".*", "dest": "/src/static/404.html" }
+  ]
+}
