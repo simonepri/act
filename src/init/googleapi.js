@@ -1,19 +1,15 @@
-const {google} = require('googleapis');
+import {google} from 'googleapis';
 
-module.exports = async options => {
-  const scopes = ['https://www.googleapis.com/auth/spreadsheets'];
-  const jwtClient = new google.auth.JWT(
-    options.email,
-    null,
-    options.key,
-    scopes
-  );
+const initGoogleAPI = async (options) => {
+  const jwtClient = new google.auth.JWT({
+    email: options.email,
+    key: options.key,
+    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+  });
 
-  try {
-    await jwtClient.authorize();
-  } catch (error) {
-    throw error;
-  }
+  await jwtClient.authorize();
 
   return jwtClient;
 };
+
+export default initGoogleAPI;

@@ -5,30 +5,25 @@
   "description": "Multi-purpose URI tracker",
   "license": "MIT",
   "scripts": {
-    "start": "now dev",
+    "start": "vercel dev",
     "lint": "xo",
-    "update": "npm-check -u",
-    "release": "np"
+    "update": "npx npm-check -u",
+    "release": "npx np"
   },
   "files": [
     "src"
   ],
   "engine": {
-    "node": ">=6"
+    "node": ">=22"
   },
   "dependencies": {
-    "cors": "^2.8.5",
-    "device": "^0.3.9",
-    "dotenv": "^8.1.0",
-    "googleapis": "^43.0.0",
-    "iplocation": "^6.1.0",
-    "ua-parser-js": "^0.7.19",
+    "dotenv": "^17.2.2",
+    "googleapis": "^160.0.0",
+    "ua-parser-js": "^2.0.5",
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
-    "now": "*",
-    "np": "*",
-    "npm-check": "*",
+    "vercel": "*",
     "xo": "*"
   },
   "xo": {
