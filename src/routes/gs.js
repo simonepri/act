@@ -1,17 +1,27 @@
+import process from 'node:process';
 import {Buffer} from 'node:buffer';
 import {google} from 'googleapis';
 import validURL from 'valid-url';
 import {UAParser} from 'ua-parser-js';
-import init from '../init/index.js';
 
 const pixel = Buffer.from(
   'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiYAAAAAkAAxkR2eQAAAAASUVORK5CYII=',
   'base64',
 );
 
-const gsRoute = async (request, response) => {
-  const configs = await init();
+const auth = new google.auth.GoogleAuth({
+  credentials: {
+    /* eslint-disable camelcase */
+    client_email: process.env.GOOGLEAPI_CLIENT_EMAIL,
+    private_key: process.env.GOOGLEAPI_PRIVATE_KEY,
+    /* eslint-enable camelcase */
+  },
+  scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+});
 
+const sheets = google.sheets({version: 'v4', auth});
+
+const gsRoute = async (request, response) => {
   const values = {};
   values.ac = request.query.a;
   values.re = request.query.r;
@@ -28,7 +38,6 @@ const gsRoute = async (request, response) => {
     (col) => values[col],
   );
 
-  const sheets = google.sheets({version: 'v4', auth: configs.auths.googleapi});
   try {
     const options = {
       spreadsheetId: request.query.id,
