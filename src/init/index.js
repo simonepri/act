@@ -1,10 +1,7 @@
 import process from 'node:process';
-import initEnv from './env.js';
 import initGoogleAPI from './googleapi.js';
 
 const init = async () => {
-  await initEnv();
-
   const configs = {};
 
   configs.auths = {
