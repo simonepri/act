@@ -70,12 +70,13 @@ GET | `https://act.now.sh/gs/<SpreadsheetId>?a=<data>&r=<uri>` | A 302 redirect 
 Currently, act supports only Google Sheets, but contributions to extend its capabilities are welcome.
 
 ## Development
-If you want to run it locally, you need to run the following commands.
+If you want to run it locally, you need to run the following commands replacing <user>, <project>, and <private_key> with appropriate values that can be obtained by requesting a [Google Sheet API key from Google Cloud Console][api:gsheets].
 
 ```bash
 git clone https://github.com/simonepri/act.git
 cd act
 
+echo 'GOOGLEAPI_CLIENT_EMAIL="<user>@<project>.iam.gserviceaccount.com"\nGOOGLEAPI_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n<private_key>\n-----END PRIVATE KEY-----\n"\n' > .env
 npm i
 npm start
 ```
@@ -100,3 +101,5 @@ This project is licensed under the MIT License - see the [license][license] file
 
 [storage:gs]: https://docs.google.com/spreadsheets/
 [storage:gs-email]: mailto:access@act-uri-tracker.iam.gserviceaccount.com
+
+[api:gsheets]:https://console.cloud.google.com/marketplace/product/google/sheets.googleapis.com
