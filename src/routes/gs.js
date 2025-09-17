@@ -17,7 +17,7 @@ const gsRoute = async (request, response) => {
   values.re = request.query.r;
   values.ts = new Date().toISOString();
   const ua = new UAParser(request.headers['user-agent']).getResult();
-  values.de = ua.device.type;
+  values.de = ua.device.type || 'desktop';
   values.os = ua.os.name;
   values.br = ua.browser.name;
   values.ct = request.headers['x-vercel-ip-city'];
